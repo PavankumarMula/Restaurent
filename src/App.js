@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import Cart from "./Cart/Cart";
+import CartProvider from "./CartItems/CartProvider";
 import Header  from "./Layout/Header";
 import Meals from "./Meals/Meals";
 function App() {
@@ -11,11 +12,11 @@ function App() {
     setIsCartISShown(false);
   }
   return (
-    <div>
+    <CartProvider>
       {cartIsShown && <Cart onHideCart={hideModalHandler}></Cart>}
       <Header onShowCart ={showModalHandler}  />
       <Meals/>
-    </div>
+    </CartProvider>
   );
 }
 
